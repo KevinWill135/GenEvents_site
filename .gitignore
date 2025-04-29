@@ -1,0 +1,12 @@
+# Ignorar pastas
+imagens/
+img_events/
+php/uploads/
+
+# Ignorar arquivos de configuração local
+.env
+*.env
+
+#Ignorar banco de dados
+*.sqlite
+*.log

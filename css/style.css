@@ -1,0 +1,208 @@
+/** Geral **/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*** Links ***/
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-link {
+    color: black;
+    
+}
+
+/***** Header e Navbar *****/
+.header_container {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: white;
+}
+
+.sec_header {
+
+}
+
+.div_logo {
+
+    width: 18%;
+}
+
+.navbar {
+
+    width: 75%;
+}
+
+.link_bar {
+
+}
+
+.form_search {
+    border: 1px solid rgb(230, 229, 229);
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px black;
+}
+
+.form_search #search { 
+    border: none;
+    border-radius: 20px;
+}
+
+.form_search #search:focus { 
+    box-shadow: none;
+}
+
+.form_search button {
+    border: none;
+    border-radius: 20px;
+}
+
+.form_search button:hover {
+    border: 1px solid rgb(205, 205, 205);
+}
+
+.icons {
+    width: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_user {
+    font-size: 150%;
+}
+
+/*** Cards Eventos no Home ***/
+#wallpaper_div {
+    width: 100%;
+    height: 350px;
+    background-image: url("../imagens/wallpaper2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#text_search {
+    
+}
+
+#search_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#search_div {
+    padding: 0;
+    margin: 0;
+}
+
+#card_div_container {
+    padding: .2rem;
+}
+
+.card {
+    border: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.div_img_index {
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_card img {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card:hover {
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px rgb(0, 0, 0);
+}
+
+/*** página do evento event.php ***/
+#event_main section, #img_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#event {
+
+}
+
+#event_img {
+    width: 40%;
+}
+
+#event_img img {
+    border-radius: 10px;
+}
+
+#tickets_form {
+    border-radius: 10px;
+    border: 1px solid rgb(223, 223, 223);
+    width: 30%;
+    padding: .6rem;
+}
+
+#tickets_form:hover {
+    box-shadow: 0 0 5px 3px rgb(0, 0, 255);
+}
+
+.div_tckts input {
+    color: black;
+}
+
+/**** Área do login ****/
+#section_login {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 35%;
+    padding: 5em;
+}
+
+#section_login form {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 85%;
+    padding: 3em;
+}
+
+/**** Área do carrinho cart.php ****/
+.alert_definition {
+    display: none;
+}
+
+#div_alert {
+    padding: .4rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_alert .alert {
+    width: 50%;
+}
