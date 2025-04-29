@@ -4,16 +4,10 @@
     include '../db.php';
     include '../class/users.php';
 
-    if(!isset($_SESSION['user_id']) AND $_SESSION['role'] !== 'admin') {
+    if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
         header('Location: ../index.php');
         exit;
     }
-
-    $user_id = $_POST['id_selected'];
-    $user = new Usuario($pdo, $user_id);
-    $data = $user->getDados();
-
-    echo json_encode($user_id);
 
 ?>
 
@@ -60,12 +54,12 @@
                     </ul>
                 </div>
                 <div class="p-2 icons">
-                    <a href="profile.php">
+                    <a href="../profile.php">
                         <i class="fa-regular fa-circle-user icon_user"></i>
                     </a>
                     <?php
                         if(isset($_SESSION['user_id'])) {
-                            echo '<a href="logout.php" class="btn"><i class="fa-solid fa-arrow-right-from-bracket icon_user"></i></a>';
+                            echo '<a href="../logout.php" class="btn"><i class="fa-solid fa-arrow-right-from-bracket icon_user"></i></a>';
                         }
                     ?>
                 </div>
@@ -102,61 +96,6 @@
         <section id="edit_section">
             <div id="edit_user">
                     <!-- Editar usuários -->
-                    <form action="../processing/update_profile.php" method="post" class="row g-3" enctype="multipart/form-data">
-                        <div class="">
-                            <h4>Foto de perfil</h4>
-                            <!--<img src="uploads/" alt="" width="200" height="200">-->
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="user_img" class="form-label">Foto de perfil</label>
-                            <input type="file" name="user_img" id="user_img" class="form-control">
-                        </div>
-                        <div class="col-sm-9">
-                            <label for="name" class="form-label">Nome</label>
-                            <input type="text" name="name" id="name" class="form-control" value="<?= htmlspecialchars($data['name']) ?>">
-                        </div>
-                        <div class="col-sm-9">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" value="<?= htmlspecialchars($data['username']) ?>">
-                        </div>
-                        <div class="col-sm-9">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" value="<?= htmlspecialchars($data['email']) ?>">
-                        </div>
-                        <div class="col-sm-9">
-                            <label for="newPassword" class="form-label">Alterar Senha</label>
-                            <input type="password" name="newPassword" class="form-control" id="newPassword" placeholder="Alterar Senha">
-                        </div>
-                        <div class="col-sm-9">
-                            <label for="confirmPassword" class="form-label">Confirmar Senha</label>
-                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Apartment, studio, or floor">
-                        </div>
-                        <div class="col-sm-5">
-                            <label for="city" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" name="city" id="city" value="<?= htmlspecialchars($data['city']) ?>">
-                        </div>
-                        <div class="col-sm-5">
-                            <label for="country" class="form-label">País</label>
-                            <input type="text" class="form-control" name="country" id="country" value="<?= htmlspecialchars($data['country']) ?>">
-                        </div>
-                        <div class="col-sm-5">
-                            <label for="phone" class="form-label">Telefone de contacto</label>
-                            <input type="text" name="phone" id="phone" class="form-control" value="<?= htmlspecialchars($data['phone']) ?>">
-                        </div>
-                        <div class="col-sm-5">
-                            <label class="form-label" for="event_type">Evento preferido</label>
-                            <select class="form-select" id="event_type" name="event_type">
-                                <option selected disabled>Escolha...</option>
-                                <option value="concertos" <?= $data['event_type'] === 'concertos' ? 'selected' : '' ?>>Concertos</option>
-                                <option value="discoteca" <?= $data['event_type'] === 'discoteca' ? 'selected' : '' ?>>Discoteca</option>
-                                <option value="sunset" <?= $data['event_type'] === 'sunset' ? 'selected' : '' ?>>Sunset</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <p id="message_error" class="text-danger"></p>
-                            <button type="submit" class="btn btn-primary">Atualizar</button>
-                        </div>
-                    </form>
             </div>
         </section>
     </main>

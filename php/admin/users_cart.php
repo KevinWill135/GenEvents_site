@@ -4,7 +4,7 @@
     include '../db.php';
 
 
-    if(!isset($_SESSION['user_id']) AND $_SESSION['role'] !== 'admin') {
+    if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
         header('Location: ../index.php');
         exit;
     }
@@ -54,12 +54,12 @@
                     </ul>
                 </div>
                 <div class="p-2 icons">
-                    <a href="profile.php">
+                    <a href="../profile.php">
                         <i class="fa-regular fa-circle-user icon_user"></i>
                     </a>
                     <?php
                         if(isset($_SESSION['user_id'])) {
-                            echo '<a href="logout.php" class="btn"><i class="fa-solid fa-arrow-right-from-bracket icon_user"></i></a>';
+                            echo '<a href="../logout.php" class="btn"><i class="fa-solid fa-arrow-right-from-bracket icon_user"></i></a>';
                         }
                     ?>
                 </div>

@@ -63,7 +63,7 @@ $(document).ready(function() {
                     let tr = `
                         <tr>
                             <td>
-                                <img src="../uploads/${user.user_img}" class="img-fluid" width="100">
+                                <img src="../processing/${user.user_img}" class="img-fluid" width="100">
                             </td>
                             <td>${user.id}</td>
                             <td>${user.name}</td>
@@ -98,25 +98,8 @@ $(document).ready(function() {
     $(document).on('click', '.select_user', function() {
         let id_selected = $(this).data('id')
         console.log(id_selected)
-        $.ajax({
-            url: 'users.php',
-            method: 'POST',
-            data: {id_selected: id_selected},
-            dataType: 'json',
-            success: function(response) {
-                console.log(response)
-                if(response.success) {
-                    console.log('sucesso no envio')
-                } else {
-                    console.log(response + 'Response no else')
-                    console.log('erro no envio')
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log('Error: ' + error)
-                console.log('Status: ' + status)
-                console.log('XHR: ' + xhr)
-            }
+        $.post('../processing/get_user.php', { id_selected: id_selected}, function(html) {
+            $('#edit_user').html(html)
         })
     })
 

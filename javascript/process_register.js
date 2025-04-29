@@ -98,7 +98,7 @@ $(document).ready(function() {
                 response = JSON.parse(response)
 
                 if(response.success) {
-                    window.location.href = '../php/index.php'
+                    window.location.href = '../html/login.html'
                 } else {
                     $('#message_error').text(response.message)
                 }

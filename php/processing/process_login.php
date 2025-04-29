@@ -23,7 +23,7 @@
             $_SESSION['role'] = $user['role'];
             $_SESSION['event_type'] = $user['event_type'];
     
-            $redirect = $user['role'] === 'admin' ? 'admin/admin.php' : 'store.php';
+            $redirect = $_SESSION['role'] === 'admin' ? '../admin/admin.php' : '../index.php';
             echo json_encode(['success' => true, 'redirect' => $redirect]);
             exit;
         } else {

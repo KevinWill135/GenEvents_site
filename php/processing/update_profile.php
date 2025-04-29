@@ -15,7 +15,8 @@
             'city' => trim($_POST['city']),
             'country' => trim($_POST['country']),
             'phone' => trim($_POST['phone']),
-            'event_type' => trim($_POST['event_type'])
+            'event_type' => trim($_POST['event_type']),
+            'role' => trim($_POST['role'])
         ];
         
         $newPassword = trim($_POST['newPassword']);
@@ -38,8 +39,7 @@
             $user->updateImg($user_img);
         }
 
-        header('Location: profile.php?success=1');
-        exit;
+        echo 'Usuário atulizado com sucesso!';
     }
 
 ?>

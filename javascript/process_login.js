@@ -35,7 +35,7 @@ $(document).ready(function() {
                 response = JSON.parse(response)
 
                 if(response.success) {
-                    window.location.href = '../php/index.php'
+                    window.location.href = '../php/admin/admin.php'
                 } else {
                     $('#message_error').text(response.message)
                 }

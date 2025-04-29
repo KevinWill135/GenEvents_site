@@ -40,9 +40,9 @@
                         </li>
                         <li class="nav-item">
                             <a 
-                            class="nav-link cart_link<?php
+                            class="nav-link<?php
                                     if(!isset($_SESSION['user_id'])) {
-                                        echo 'disabled';
+                                        echo ' disabled';
                                     }
                                 ?>" 
                             href="cart.php">
