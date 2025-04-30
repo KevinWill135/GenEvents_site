@@ -44,7 +44,9 @@ $(document).ready(function() {
                     updateTotal()
                     window.location.href = 'cart.php'
                 } else {
-                    alert('Erro: ' + response.message)
+                    alert('Erro line 47 process_event: ' + response.message)
+                    $('.qtd_batch').val(0)
+                    updateTotal()
                 }
             },
             error: function(xhr, status, error) {

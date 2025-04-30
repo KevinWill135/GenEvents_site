@@ -3,15 +3,17 @@
     session_start();
     include '../db.php';
     require_once '../class/users.php';
+    //print_r($_POST['id_selected']);
+    //exit;
 
     if(isset($_POST['id_selected'])) {
-        $user_id = $_POST['id_selected'];
+        $user_id = intval($_POST['id_selected']);
         $user = new Usuario($pdo, $user_id);
         $data = $user->getDados();
 
         if($user) {
             ?>
-                <form id="update_user_adm" class="row g-3" enctype="multipart/form-data">
+                <form id="form_adm" action="../processing/update_profile.php" method="post" class="row g-3" enctype="multipart/form-data">
                     <div class="">
                         <h4>Foto de perfil</h4>
                         <img src="../processing/<?= htmlspecialchars($data['user_img']) ?>" alt="<?= htmlspecialchars($data['username']) ?>" width="200" height="200">
@@ -71,7 +73,7 @@
                     </div>
                 </form>
                 <script>
-                    $(document).on('submit', '#update_user_adm', function(e) {
+                    /*$(document).on('submit', '#update_user_adm', function(e) {
                         e.preventDefault()
 
                         const formData = new FormData(this);
@@ -91,7 +93,7 @@
                                 console.log('XHR: ' + xhr)
                             }
                         })
-                    })
+                    })*/
                 </script>
             <?php
         }

@@ -100,6 +100,11 @@ $(document).ready(function() {
         console.log(id_selected)
         $.post('../processing/get_user.php', { id_selected: id_selected}, function(html) {
             $('#edit_user').html(html)
+            $('<input>', {
+                type: 'hidden',
+                name: 'user_id',
+                value: id_selected
+            }).appendTo('#form_adm')
         })
     })
 

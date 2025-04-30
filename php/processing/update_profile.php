@@ -4,7 +4,14 @@
     include '../db.php';
     include_once '../class/users.php';
 
-    $user_id = $_SESSION['user_id'];
+    $user_id = '';
+    if(isset($_SESSION['role']) == 'admin' && isset($_POST['user_id'])) {
+        header('Location: ../admin/users.php');
+        $user_id = $_POST['user_id'];
+    } else {
+        header('Location: ../profile.php');
+        $user_id = $_SESSION['user_id'];
+    }
     $user = new Usuario($pdo, $user_id);
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,7 +23,7 @@
             'country' => trim($_POST['country']),
             'phone' => trim($_POST['phone']),
             'event_type' => trim($_POST['event_type']),
-            'role' => trim($_POST['role'])
+            'role' => $_POST['role']
         ];
         
         $newPassword = trim($_POST['newPassword']);
@@ -35,11 +42,12 @@
 
         $user->atualizar($update);
         $user_img = $_FILES['user_img'];
-        if (!empty($user_img) && $user_img['error'] === 0) {
+        if (!empty($user_img) || $user_img['error'] == 0) {
             $user->updateImg($user_img);
         }
 
         echo 'Usuário atulizado com sucesso!';
+
     }
 
 ?>
