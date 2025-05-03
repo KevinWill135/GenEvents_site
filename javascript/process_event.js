@@ -12,6 +12,7 @@ $(document).ready(function() {
 
     //atualizar sempre o total
     $('.qtd_batch').on('change', updateTotal)
+    $('.qtd_batch').on('keyup', updateTotal)
 
     //enviando dados com button
     $('#add_cart').click(function() {

@@ -8,9 +8,8 @@
         exit;
     }
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    }
+    
+    //if($_SERVER['REQUEST_METHOD'] === 'POST') {}
 
     $user_id = $_SESSION['user_id'];
     $sql = "
@@ -57,7 +56,7 @@
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
-                    <img src="../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    <img src="../imagens/logo8.png" alt="Logo GenEvents" class="img-fluid logo">
                 </div>
                 <div class="p-2 d-flex link_bar">
                     <ul class="nav justify-content-center">
@@ -82,14 +81,6 @@
                             </a>
                         </li>
                     </ul>
-                    <form id="search_index" action="" method="get" class="d-flex form_search">
-                        <div class="d-flex input-group border border-1 border-light rounded-pill">
-                            <button id="search-button" type="submit" class="input-group-text bg-white text-black border-0 py-0" aria-label="search submit">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <input type="search" name="search" id="search" autocomplete="off" class="form-control text-black border-0" placeholder="Search events">
-                        </div>
-                    </form>
                 </div>
                 <div class="p-2 icons">
                     <a href="profile.php">
@@ -110,14 +101,14 @@
         <section id="cart_section" class="container">
             <?php if($result): ?>
             <form id="cart_form">
-                <div id="cart_div">
+                <div id="cart_div" class="row">
                     <?php while($row = $result->fetch_assoc()): ?>
-                    <div class="card mb-3">
+                    <div class="card mb-3 col-sm-5 cart_item">
                         <div class="card-header">
                             <p class="d-inline-block" id="title_cart">
                                 <?= $row['event_name'] ?>
                             </p>
-                            <p class="d-inline-block" id="lote">
+                            <p class="d-inline-block" id="lote" style="float: right">
                                 Lote <?php 
                                         $lote = str_replace('lote_', '', $row['batch_name']);
                                         echo $lote;
@@ -136,7 +127,15 @@
                                     echo $end_date;
                                 ?>
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item mb-2 last_li">
+                                <div class="div_price">
+                                    <p class="ticket_price" style="display: inline-block">
+                                        Preço Unitário:
+                                    </p>
+                                    <span class="price_spn">€<?= $row['unit_price'] ?></span>
+                                </div>
+                                <div class="div_qtd">
+                                    <label>Quantidade:</label>
                                     <input 
                                         type="number" 
                                         name="qtd_cart" 
@@ -148,10 +147,8 @@
                                         min="0" 
                                         max="<?= $row['available_quantity'] ?>"
                                     >
-                                    <p class="ticket_price" style="display: inline-block">
-                                        Preço Unitário: €
-                                        <span class="price_spn"><?= $row['unit_price'] ?></span>
-                                    </p>
+                                </div>
+                                
                             </li>
                             <li>
                                 <button type="button" class="btn btn-outline-danger remover_cart" data-cart-id="<?= $row['cart_id'] ?>">Remover Ticket</button>

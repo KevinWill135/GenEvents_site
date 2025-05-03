@@ -139,6 +139,18 @@ a {
 }
 
 /*** página do evento event.php ***/
+#event_body, #event_header {
+    position: relative;
+    background-image: radial-gradient(circle, rgb(98, 0, 255), indigo);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#event_header a:hover {
+    color: white;
+}
+
 #event_main section, #img_div {
     display: flex;
     flex-direction: column;
@@ -146,8 +158,17 @@ a {
     align-items: center;
 }
 
-#event {
+#event_container {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 8px;
+    width: 90%;
+    padding: 1rem;
+    margin-bottom: 1em;
+}
 
+#img_div {
+    padding: .8rem;
 }
 
 #event_img {
@@ -175,17 +196,39 @@ a {
 
 /**** Área do login ****/
 #section_login {
-    border: 2px solid black;
     border-radius: 20px;
-    width: 35%;
+    width: 50%;
     padding: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#text_logo {
+    align-self: flex-start;
+    position: relative;
+    /*left: 50px;*/
+}
+
+#link_login img {
+    width: 160px;
 }
 
 #section_login form {
-    border: 2px solid black;
     border-radius: 20px;
     width: 85%;
-    padding: 3em;
+    padding: 2rem;
+}
+
+#login_form input {
+    border: none;
+}
+
+#login_form input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /**** Área do carrinho cart.php ****/
@@ -198,11 +241,176 @@ a {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
 
 #div_alert .alert {
     width: 50%;
+}
+
+.cart_item {
+    margin: .8rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: .8rem;
+    max-width: 95%;
+}
+
+.last_li {
+    display: flex;
+}
+
+.div_price, .div_qtd {
+    display: flex;
+    flex-direction: column;
+    margin: .2rem .8rem;
+}
+
+.div_price p {
+    margin: 0;
+    margin-bottom: .4rem;
+}
+
+.qtd_cart {
+    border: none;
+    padding: .4rem;
+    border-radius: 8px;
+    width: 65px;
+}
+
+.qtd_cart:focus {
+    border: none;
+    outline: none;
+    box-shadow: 0 0 4px 1px rgba(23, 148, 7, 0.5);
+}
+
+.qtd_cart::increment, .qtd_cart::decrement {
+    appearance: none;
+    border: none;
+    background-color: green;
+    color: blue;
+    cursor: pointer;
+    padding: .4rem;
+}
+
+/**** Responsividade, diferentes tamanhos de telas ****/
+@media (min-width: 992px) AND (max-width: 1315px) {
+    /* Por enquanto nada para mudar */
+}
+
+@media (min-width: 407px) AND (max-width: 992px){
+    /* Mudando a página home/index.php */
+    .icons {
+        order: 2;
+        position: relative;
+        right: 15px;
+        width: 45%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .div_logo {
+        order: 1;
+        position: relative;
+        width: 45%;
+    }
+
+    .link_bar {
+        width: 100%;
+        order: 3;
+        flex-direction: column;
+        align-self: flex-end;
+    }
+
+    .div_links {
+        order: 2;
+        display: flex;
+    }
+
+    .link_bar ul {
+        order: 0;
+    }
+
+    #search_index {
+        margin-bottom: .6rem;
+    }
+
+    #wallpaper_div {
+        height: 200px;
+    }
+
+    .div_img_index {
+        height: 225px;
+    }
+}
+
+@media (max-width: 915px) {
+    /* Estilização da página de login */
+    #section_login {
+        width: 100%;
+    }
+
+    #section_login form {
+        width: 95%;
+    }
+
+    #wallpaper_div {
+        height: 150px;
+    }
+
+    /*** página do evento event.php ***/
+    #tickets_form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 406px) {
+    /* Mudando a página home/index.php */
+    .icons {
+        order: 2;
+        position: relative;
+        right: 15px;
+    }
+
+    .div_logo {
+        order: 1;
+        position: relative;
+    }
+
+    .link_logo {
+        position: absolute;
+        width: 350%;
+        top: -15px;
+        left: -1px;
+    }
+
+    .link_bar {
+        order: 3;
+        flex-direction: column;
+    }
+
+    .div_links {
+        order: 2;
+        display: flex;
+    }
+
+    .link_bar ul {
+        order: 0;
+    }
+
+    .btn_collpase {
+        order: 1;
+        border: none;
+        align-self: flex-start;
+        flex-grow: 1;
+        transition: var(--bs-navbar-toggler-transition);
+    }
+
+    #search_index {
+        order: 0;
+        width: 100%;
+        flex-grow: 4;
+    }
 }

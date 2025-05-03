@@ -69,7 +69,9 @@
         <!-- Fim do header -->
         <!-- Começo da main -->
     <main class="mb-3">
-        Users_cart
+        <section id="tb_users">
+            fazer um select dos IDs de users que estão no cart, capturar cada ID e pedir todos os usuários que estão com compras no cart, depois de ter cada usuário que tem o cart em aberto, terei um button selecionar para ver o que ele tem dentro do cart, isso irá me permitir alterar a quantidade da compra e remover do carrinho o ticket e assim estará pronto o back-end do users_cart.php
+        </section>
     </main>
         <!-- Fim da main -->
         <!-- Começo do footer -->

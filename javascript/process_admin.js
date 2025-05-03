@@ -98,7 +98,7 @@ $(document).ready(function() {
     $(document).on('click', '.select_user', function() {
         let id_selected = $(this).data('id')
         console.log(id_selected)
-        $.post('../processing/get_user.php', { id_selected: id_selected}, function(html) {
+        $.post('../processing/get_user.php', { id_selected: id_selected }, function(html) {
             $('#edit_user').html(html)
             $('<input>', {
                 type: 'hidden',

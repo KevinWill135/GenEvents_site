@@ -20,11 +20,12 @@ $(document).ready(function() {
         div_alert.css({
             'position':'absolute', 
             'z-index':'1000',
+            'display': 'flex'
         })
 
         $('#body_cart').css({
             'background-color': 'rgba(0, 0, 0, 0.5)',
-            'z-index': '1'
+            'z-index': '1',
         })
 
         $('.header_container').addClass('alert_definition')

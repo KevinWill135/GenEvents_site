@@ -1,4 +1,50 @@
 #section_profile {
-    border: 1px solid red;
-    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgb(159, 159, 159);
+    width: 65%;
+    padding: .8rem;
+}
+
+#div_fotoPF {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_fotoPF img {
+    border-radius: 50%;
+    box-shadow: 2px 3px 5px 2px black;
+}
+
+#user_img {
+    display: none;
+}
+
+.img_profile_update {
+    display: inline-block;
+    padding: 9px 13px;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    /*font-weight: bold;*/
+    transition: background 0.3s;
+}
+
+.img_profile_update:hover {
+    background-color: #0a5dd9;
+}
+
+#file-name {
+    margin-left: 10px;
+    font-style: italic;
+    color: #333;
+}
+
+/**** Responsividade, diferentes tamanhos de telas ****/
+@media (max-width: 646px) {
+    #section_profile {
+        width: 100%;
+    }
 }

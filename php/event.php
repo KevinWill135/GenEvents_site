@@ -40,17 +40,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css">
+    <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
+    <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/aa07e9ca9b.js" crossorigin="anonymous"></script>
     <title>GenEvents</title>
 </head>
-<body>
+<body id="event_body">
         <!-- Começo do header -->
-    <header class="header_container mb-3">
+    <header id="event_header" class="header_container mb-3">
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
-                    <img src="../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    <img src="../imagens/logo_event.png" alt="Logo GenEvents" class="img-fluid logo">
                 </div>
                 <div class="p-2 d-flex link_bar">
                     <ul class="nav justify-content-center">
@@ -75,14 +77,6 @@
                             </a>
                         </li>
                     </ul>
-                    <form id="search_index" action="" method="get" class="d-flex form_search">
-                        <div class="d-flex input-group border border-1 border-light rounded-pill">
-                            <button id="search-button" type="submit" class="input-group-text bg-white text-black border-0 py-0" aria-label="search submit">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <input type="search" name="search" id="search" autocomplete="off" class="form-control text-black border-0" placeholder="Search events">
-                        </div>
-                    </form>
                 </div>
                 <div class="p-2 icons">
                     <a href="profile.php">
@@ -101,10 +95,10 @@
         <!-- Começo da main -->
     <main id="event_main">
         <section id="event" class="container-fluid">
-            <div id="event_container">
+            <div id="event_container" class="mt-3">
                 <div id="img_div" class="mb-3">
                     <div id="event_img" class="mb-2">
-                        <img src="<?= $event['main_img'] ?>" alt="<?= $event['name'] ?>" class="img-fluid">
+                        <img src="<?= $event['main_img'] ?>" alt="<?= $event['name'] ?>" class="card-img-top img_card">
                     </div>
                     <div id="title_div">
                         <h3><?= $event['name'] ?></h3>
@@ -135,6 +129,11 @@
                             ?>
                             €<?= $batch['price'] ?>
                         </label>
+                        <?php if($batch['available_quantity'] == 0) {
+                            $quantity = 'disabled';
+                        } else {
+                            $quantity = '';
+                        } ?>
                         <input 
                             type="number" 
                             name="batch_<?= $batch['id'] ?>" 
@@ -145,12 +144,13 @@
                             max="<?= $batch['available_quantity'] ?>" 
                             data-batch-id="<?= $batch['id'] ?>" 
                             data-price="<?= $batch['price'] ?>"
+                            <?= $quantity ?>
                         >
                     </div>
                     <?php endforeach; ?>
                     <div>
                         <p>Total: €<span id="total">0.00</span></p>
-                        <button type="button" id="add_cart" class="btn btn-outline-primary">Comprar</button>
+                        <button type="button" id="add_cart" class="btn btn-outline-light">Comprar</button>
                     </div>
                 </form>
             </div>
@@ -162,6 +162,7 @@
         Social media | links | location about others page | contacts
     </footer>
         <!-- Fim do footer -->
+
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>

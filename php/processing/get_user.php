@@ -3,8 +3,6 @@
     session_start();
     include '../db.php';
     require_once '../class/users.php';
-    //print_r($_POST['id_selected']);
-    //exit;
 
     if(isset($_POST['id_selected'])) {
         $user_id = intval($_POST['id_selected']);

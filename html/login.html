@@ -40,16 +40,28 @@
     </header>
         <!-- Fim do header -->
         <!-- Começo da main -->
-    <main class="d-flex justify-content-center">
-        <section id="section_login" class="d-flex justify-content-center">
-            <form id="login_form" method="post">
+    <main class="d-flex justify-content-center mt-4">
+        <section id="section_login" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <div id="text_logo" class="mb-2">
+                <a href="../php/index.php" id="link_login">
+                    <img src="../imagens/logo8.png" alt="Logo GenEvents" class="img-fluid">
+                </a>
+            </div>
+            <form id="login_form" method="post" class="shadow p-3 mb-5 bg-body-tertiary rounded row">
+                <h3>Sing In</h3>
+                <hr>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" >
+                    <label for="email" class="form-label label_email" style="display: block;">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" >
+                    <div class="d-flex input-group border border-1 border-light rounded-pill">
+                        <input type="password" class="form-control" id="password" name="password" autocomplete="off" placeholder="Senha">
+                        <button id="btn_eyes" type="button" class="input-group-text bg-white text-black border-0 py-0" aria-label="search submit">
+                            <!--<i class="fa-solid fa-eye"></i>-->
+                        </button>
+                    </div>
                 </div>
                 <p id="message_error" class="text-danger">
                     <a id="alterar_senha" href="../php/index.php" class="text-primary" style="display: none;">Alterar Senha</a>
@@ -69,5 +81,32 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script src="../javascript/process_login.js"></script>
+    <script>
+        $('#password').on('focus', function() {
+            let password = $('#password').val()
+            let btn = $('#btn_eyes')
+
+            let eyes = '<i class="fa-solid fa-eye" onclick="lookPassword()"></i>'
+            btn.html(eyes)
+        })
+
+        function lookPassword() {
+            let input = $('#password')
+            input.attr('type', 'text')
+
+            let btn = $('#btn_eyes')
+            let eyes = '<i class="fa-solid fa-eye-slash" onclick="lockPassword()"></i>'
+            btn.html(eyes)
+        }
+
+        function lockPassword() {
+            let input = $('#password')
+            input.attr('type', 'password')
+
+            let btn = $('#btn_eyes')
+            let eyes = '<i class="fa-solid fa-eye" onclick="lookPassword()"></i>'
+            btn.html(eyes)
+        }
+    </script>
 </body>
 </html>

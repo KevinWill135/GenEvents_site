@@ -23,34 +23,41 @@
         <!-- Começo do header -->
     <header class="header_container mb-3">
         <section class="d-flex justify-content-center sec_header">
-            <nav class="navbar">
+            <nav class="navbar navbar-expand-lg">
                 <div class="p-2 div_logo">
-                    <img src="../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    <a href="index.php" class="link_logo">
+                        <img src="../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    </a>
                 </div>
                 <div class="p-2 d-flex link_bar">
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../html/sobre.html">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../html/contactos.html">Contactos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a 
-                            class="nav-link<?php
-                                    if(!isset($_SESSION['user_id'])) {
-                                        echo ' disabled';
-                                    }
-                                ?>" 
-                            href="cart.php">
-                                Carrinho
-                            </a>
-                        </li>
-                    </ul>
-                    <form id="search_index" action="" method="get" class="d-flex form_search">
+                    <div class="div_links">
+                        <button class="navbar-toggler btn_collpase" type="button" data-bs-toggle="collapse" data-bs-target="#link_collapse" aria-controls="link_collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <ul class="nav justify-content-center collapse navbar-collapse" id="link_collapse">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../html/sobre.html">Sobre</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../html/contactos.html">Contactos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a 
+                                class="nav-link<?php
+                                        if(!isset($_SESSION['user_id'])) {
+                                            echo ' disabled';
+                                        }
+                                    ?>" 
+                                href="cart.php">
+                                    Carrinho
+                                </a>
+                            </li>
+                        </ul>
+                    </div>                   
+                    <form id="search_index" method="get" class="d-flex form_search">
                         <div class="d-flex input-group border border-1 border-light rounded-pill">
                             <button id="search-button" type="submit" class="input-group-text bg-white text-black border-0 py-0" aria-label="search submit">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -77,7 +84,6 @@
     <main class="mb-3">
         <section id="first_section" class="container-fluid mb-2">
             <div id="wallpaper_div" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                <!--<img src="../imagens/wallpaper2.jpeg" alt="" class="img-fluid">-->
                 <h3 style="color: white">Seja Bem-Vindo</h3>
             </div>
         </section>

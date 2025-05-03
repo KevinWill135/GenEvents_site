@@ -42,51 +42,82 @@
         <!-- Começo da main -->
     <main>
         <section class="container">
+            <h3 class="mb-4">Registar-se</h3>
             <form id="form_register" action="" method="post" class="row g-3">
                 <div class="col-12">
                     <label for="name" class="form-label">Nome</label>
-                    <input type="text" name="name" id="name" class="form-control">
+                    <input type="text" name="name" id="name" class="form-control" aria-describedby="text_name">
+                    <div id="text_name" class="form-text">
+                        Deve preencher com seu nome completo.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" class="form-control">
+                    <input type="email" name="email" id="email" class="form-control" aria-describedby="text_email">
+                    <div id="text_email" class="form-text">
+                        Deve conter um email válido.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control">
+                    <input type="text" name="username" id="username" class="form-control" aria-describedby="text_username">
+                    <div id="text_username" class="form-text">
+                        Username da sua escolha, seja criativo.
+                    </div>
                 </div>
                 <div class="col-12">
                     <label for="password" class="form-label">Senha</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Senha">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Senha" aria-describedby="text_password">
+                    <div id="text_password" class="form-text">
+                        Senha deve ter pelo menos 8 caracteres, ao menos 1 deve ser caratere especial e também conter 1 número.
+                    </div>
                 </div>
                 <div class="col-12">
                     <label for="confirmPassword" class="form-label">Confirmar Senha</label>
-                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Apartment, studio, or floor">
+                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirmar sua senha" aria-describedby="textConfirmPassword">
+                    <div id="textConfirmPassword" class="form-text">
+                        As senhas devem ser idênticas.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="city" class="form-label">cidade</label>
-                    <input type="text" class="form-control" name="city" id="city">
+                    <input type="text" class="form-control" name="city" id="city" aria-describedby="textCity">
+                    <div id="textCity" class="form-text">
+                        Por favor, preencha com o nome da cidade onde mora.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="country" class="form-label">País</label>
-                    <input type="text" class="form-control" name="country" id="country">
+                    <input type="text" class="form-control" name="country" id="country" aria-describedby="textCountry">
+                    <div id="textCountry" class="form-text">
+                        Por favor, preencha com o nome do país onde mora.
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <label for="phone" class="form-label">Telefone de contacto</label>
-                    <input type="text" name="phone" id="phone" class="form-control">
+                    <input type="text" name="phone" id="phone" class="form-control" aria-describedby="text_phone">
+                    <div id="text_phone" class="form-text">
+                        Seu melhor número para contacto.
+                    </div>
                 </div>
                 <div class="col-sm-4">
                     <label class="form-label" for="event_type">Evento preferido</label>
-                    <select class="form-select" id="event_type" name="event_type">
+                    <select class="form-select" id="event_type" name="event_type" aria-describedby="text_slcEvent">
                         <option selected disabled>Escolha...</option>
                         <option value="concertos">Concertos</option>
                         <option value="discoteca">Discoteca</option>
                         <option value="sunset">Sunset</option>
                     </select>
+                    <div id="text_slcEvent" class="form-text">
+                        Escolha o tipe de evento que mais lhe agrada.
+                    </div>
                 </div>
                 <div class="col-sm-12">
                     <label for="user_img" class="form-label">Foto de perfil</label>
-                    <input type="file" name="user_img" id="user_img" class="form-control">
+                    <input type="file" name="user_img" id="user_img" class="form-control" aria-describedby="text_img">
+                    <div id="text_img" class="form-text">
+                        Escolha uma imagem de perfil.
+                    </div>
                 </div>
                 <div class="col-12">
                     <p id="message_error" class="text-danger"></p>
