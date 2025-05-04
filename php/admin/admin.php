@@ -18,17 +18,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/admin.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/aa07e9ca9b.js" crossorigin="anonymous"></script>
     <title>GenEvents</title>
 </head>
-<body>
+<body class="bg-body-tertiary">
         <!-- Começo do header -->
     <header class="header_container mb-3">
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
-                    <img src="../../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    <a href="../index.php">
+                        <img src="../../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    </a>
                 </div>
                 <div class="p-2 d-flex link_bar">
                     <ul class="nav justify-content-center">
@@ -69,9 +72,9 @@
         <!-- Fim do header -->
         <!-- Começo da main -->
     <main class="mb-3">
-        <section id="view_sales">
+        <section id="view_sales" class="container shadow p-3 mb-5 bg-body-tertiary rounded">
             <div>
-                <table>
+                <table class="table table-light table-hover table-borderless">
                     <thead>
                         <tr>
                             <th>User ID</th>
@@ -80,14 +83,14 @@
                         </tr>
                     </thead>
                     <tbody id="total_sales">
-
+                            <!-- View está AQUI!! -->
                     </tbody>
                 </table>
             </div>
         </section>
-        <section id="view_order">
+        <section id="view_order" class="container shadow p-3 mb-5 bg-body-tertiary rounded">
             <div>
-                <table>
+                <table class="table table-light table-hover table-borderless">
                     <thead>
                         <tr>
                             <th>Sale ID</th>
@@ -102,7 +105,7 @@
                         </tr>
                     </thead>
                     <tbody id="order_history">
-            
+                            <!-- View está AQUI!! -->
                     </tbody>
                 </table>
             </div>

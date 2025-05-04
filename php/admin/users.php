@@ -18,6 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/admin.css">
+    <link rel="stylesheet" href="../../CSS/profile.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/aa07e9ca9b.js" crossorigin="anonymous"></script>
     <title>GenEvents</title>
@@ -28,7 +30,9 @@
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
-                    <img src="../../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    <a href="../index.php">
+                        <img src="../../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    </a>
                 </div>
                 <div class="p-2 d-flex link_bar">
                     <ul class="nav justify-content-center">
@@ -69,9 +73,12 @@
         <!-- Fim do header -->
         <!-- Começo da main -->
     <main class="mb-3">
-        <section id="user_section">
+        <div class="container adm_title">
+            <h3>Bem-vindo ao Users</h3>
+        </div>
+        <section id="user_section" class="container shadow p-3 mb-5 bg-body-tertiary rounded">
             <div id="user_container">
-                <table>
+                <table class="table table-light table-hover table-borderless">
                     <thead>
                         <tr>
                             <th>Image</th>
@@ -93,8 +100,8 @@
                 </table>
             </div>
         </section>
-        <section id="edit_section">
-            <div id="edit_user">
+        <section id="edit_section" class="d-flex justify-content-center align-items-center">
+            <div id="edit_user" class="section_profile">
                     <!-- Editar usuários -->
             </div>
         </section>

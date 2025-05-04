@@ -63,13 +63,13 @@ $(document).ready(function() {
                     let tr = `
                         <tr>
                             <td>
-                                <img src="../processing/${user.user_img}" class="img-fluid" width="100">
+                                <img src="../processing/${user.user_img}" class="img-fluid img_adm">
                             </td>
                             <td>${user.id}</td>
                             <td>${user.name}</td>
                             <td>${user.username}</td>
                             <td>${user.email}</td>
-                            <td>Senha</td>
+                            <td>Senha Criptografada</td>
                             <td>${user.phone}</td>
                             <td>${user.city}</td>
                             <td>${user.country}</td>
@@ -105,6 +105,7 @@ $(document).ready(function() {
                 name: 'user_id',
                 value: id_selected
             }).appendTo('#form_adm')
+            $('#edit_user').css('display', 'block')
         })
     })
 
@@ -120,7 +121,7 @@ $(document).ready(function() {
                     let tr = `
                         <tr>
                             <td>
-                                <img src="../processing/${user.user_img}" class="img-fluid" width="100">
+                                <img src="../processing/${user.user_img}" class="img-fluid img_adm">
                             </td>
                             <td>${user.id}</td>
                             <td>${user.name}</td>
@@ -146,11 +147,11 @@ $(document).ready(function() {
     }
     usersCart()
 
-    //mandando o user selecionando para o back-end
+    //mandando o user selecionando em users_cart para o back-end
     $(document).on('click', '.select_cart', function() {
         let user_id = $(this).data('id')
         console.log(user_id)
-        $.post('get_cart.php', { user_id: user_id }, function(html) {
+        $.post('../processing/get_cart.php', { user_id: user_id }, function(html) {
             $('#user_cart').html(html)
             $('<input>', {
                 type: 'hidden',
@@ -160,9 +161,54 @@ $(document).ready(function() {
         })
     })
 
-    //manipulando total no cart do usuário
-    $(document).on('change', 'qtd_cart', function() {
+    //Removendo do carrinho através do users_cart
+    $(document).on('click', '.remover_cart_admin', function() {
+        let cart_id = $(this).data('cart-id')
+        //console.log(cart_id)
+        $.post('../processing/delete_cart.php', { cart_id: cart_id }, function(response) {
+            alert('Removido com Sucesso!')
+            window.location.href = 'users_cart.php'
+        })
+    })
+
+    //atualizando quantidade no banco de dados e o total no front
+    function updatePrice(card) {
+        let qtd_cart = parseInt($(card).find('.qtd_cart_admin').val())
+        let price = parseFloat($(card).find('.qtd_cart_admin').data('price'))
+        let total = (price * qtd_cart).toFixed(2)
+        $(card).find('.total_adm').html(total)
+    }
+
+    $('.cart_adm').each(function() {
+        updatePrice(this)
+    })
+
+    $(document).on('change', '.qtd_cart_admin', function() {
+        let card = $(this).closest('.cart_adm')
+        updatePrice(card)
+
+        //recuperando dados para mudar em database
+        let user_id = $(this).data('user')
+        let batch_id = $(this).data('id')
         let qtd_cart = $(this).val()
-        console.log(qtd_cart)
+
+        $.ajax({
+            url: '../processing/update_cart.php',
+            method: 'POST',
+            data: {new_qtd: qtd_cart, batch_id: batch_id, user_id: user_id},
+            success: function(response) {
+                if(response.success) {
+                    console.log('dados enviados')
+                } else {
+                    console.log('erro ao enviar dados no process_admin ' + response.message)
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Erro ao atulizar o carrinho: ', error)
+                console.error('Erro xhr: ', xhr)
+                console.error('Status: ', status)
+                console.log('Erro de conexão com servidor')
+            }
+        })
     })
 })

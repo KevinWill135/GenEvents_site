@@ -26,7 +26,7 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="p-2 div_logo">
                     <a href="index.php" class="link_logo">
-                        <img src="../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                        <img src="../imagens/logo8.png" alt="Logo GenEvents" class="img-fluid logo">
                     </a>
                 </div>
                 <div class="p-2 d-flex link_bar">

@@ -16,7 +16,7 @@
     }
 
     //atualizando coluna quantity
-    $user_id = $_SESSION['user_id'];
+    $user_id = intval($_POST['user_id']);
     $new_qtd = intval($_POST['new_qtd']);
     $batch_id = intval($_POST['batch_id']);
 

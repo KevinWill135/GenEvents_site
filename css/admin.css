@@ -1,0 +1,54 @@
+.adm_title {
+    margin-bottom: 2em;
+}
+
+/**** Estilização de USERS ****/
+#user_tbody img {
+    width: 100px;
+    height: 95px;
+}
+
+@media (max-width: 1200px) {
+    #user_tbody img {
+        height: 55px;
+    }
+}
+
+/**** Estilização de USERS_CART ****/
+#tb_user_cart {
+    padding: .8rem;
+}
+
+.img_adm {
+    border-radius: 50%;
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+}
+
+#user_cart {
+    padding-left: 10%;
+}
+
+#empty_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 5%;
+}
+
+#empty_cart {
+    border-radius: 15px;
+    box-shadow: 0 0 8px 2px rgb(255, 150, 0);
+    display: inline-block;
+    padding: 1.4rem;
+    background-color: black;
+    color: aliceblue;
+}
+
+.fa-triangle-exclamation {
+    color: rgb(255, 200, 0);
+    font-size: xx-large;
+    margin-left: 15px;
+}

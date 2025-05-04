@@ -8,9 +8,6 @@
         exit;
     }
 
-    
-    //if($_SERVER['REQUEST_METHOD'] === 'POST') {}
-
     $user_id = $_SESSION['user_id'];
     $sql = "
         SELECT
@@ -56,7 +53,9 @@
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
-                    <img src="../imagens/logo8.png" alt="Logo GenEvents" class="img-fluid logo">
+                    <a href="index.php">
+                        <img src="../imagens/logo8.png" alt="Logo GenEvents" class="img-fluid logo">
+                    </a>
                 </div>
                 <div class="p-2 d-flex link_bar">
                     <ul class="nav justify-content-center">
@@ -143,12 +142,12 @@
                                         data-id="<?= $row['batch_id'] ?>"
                                         data-price="<?= $row['unit_price'] ?>"
                                         data-event-id="<?= $row['event_id'] ?>"
+                                        data-user="<?= $_SESSION['user_id'] ?>"
                                         value="<?= $row['quantity'] ?>" 
                                         min="0" 
                                         max="<?= $row['available_quantity'] ?>"
                                     >
                                 </div>
-                                
                             </li>
                             <li>
                                 <button type="button" class="btn btn-outline-danger remover_cart" data-cart-id="<?= $row['cart_id'] ?>">Remover Ticket</button>

@@ -52,7 +52,9 @@
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
-                    <img src="../imagens/logo_event.png" alt="Logo GenEvents" class="img-fluid logo">
+                    <a href="index.php">
+                        <img src="../imagens/logo_event.png" alt="Logo GenEvents" class="img-fluid logo">    
+                    </a>
                 </div>
                 <div class="p-2 d-flex link_bar">
                     <ul class="nav justify-content-center">

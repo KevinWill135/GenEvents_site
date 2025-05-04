@@ -68,6 +68,7 @@ $(document).ready(function() {
     $('.qtd_cart').on('change', function() {
         let qtd_cart = $(this).val()
         let batch_id = $(this).data('id')
+        let user_id = $(this).data('user')
         updateTotal()
         
         //console.log(price_spn)
@@ -77,7 +78,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../php/processing/update_cart.php',
             method: 'POST',
-            data: {new_qtd: qtd_cart, batch_id: batch_id},
+            data: {new_qtd: qtd_cart, batch_id: batch_id, user_id: user_id},
             success: function(response) {
                 if(response.success) {
                     console.log('dados enviados')

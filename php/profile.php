@@ -33,7 +33,9 @@
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
-                    <img src="../imagens/logo8.jpg" alt="Logo GenEvents" class="img-fluid logo">
+                    <a href="index.php">
+                        <img src="../imagens/logo8.png" alt="Logo GenEvents" class="img-fluid logo">
+                    </a>
                 </div>
                 <div class="p-2 d-flex link_bar">
                     <ul class="nav justify-content-center">
@@ -51,6 +53,11 @@
                                 Carrinho
                             </a>
                         </li>
+                        <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin/admin.php">Administração</a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
                 <div class="p-2 icons">
@@ -69,9 +76,9 @@
         <!-- Fim do header -->
         <!-- Começo da main -->
     <main class="d-flex justify-content-center align-items-center">
-        <section id="section_profile">
+        <section class="section_profile">
             <form action="processing/update_profile.php" method="post" class="row g-3" enctype="multipart/form-data">
-                <div id="div_fotoPF">
+                <div class="div_fotoPF">
                     <h4>Foto de perfil</h4>
                     <img src="processing/<?= htmlspecialchars($data['user_img']) ?>" alt="<?= htmlspecialchars($data['username']) ?>" width="200" height="200">
                 </div>

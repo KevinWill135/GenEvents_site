@@ -12,13 +12,14 @@
         if($user) {
             ?>
                 <form id="form_adm" action="../processing/update_profile.php" method="post" class="row g-3" enctype="multipart/form-data">
-                    <div class="">
+                    <div class="div_fotoPF">
                         <h4>Foto de perfil</h4>
                         <img src="../processing/<?= htmlspecialchars($data['user_img']) ?>" alt="<?= htmlspecialchars($data['username']) ?>" width="200" height="200">
                     </div>
-                    <div class="col-sm-6">
-                        <label for="user_img" class="form-label">Foto de perfil</label>
-                        <input type="file" name="user_img" id="user_img" class="form-control">
+                    <div id="nova_foto" class="col-sm-12">
+                        <label for="user_img" class="form-label img_profile_update">Alterar foto</label>
+                        <input type="file" name="user_img" id="user_img" class="form-control" onchange="showFile(this)">
+                        <span id="file-name">Nenhum arquivo selecionado</span>
                     </div>
                     <div class="col-sm-9">
                         <label for="name" class="form-label">Nome</label>
@@ -38,7 +39,7 @@
                     </div>
                     <div class="col-sm-9">
                         <label for="confirmPassword" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Apartment, studio, or floor">
+                        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirmar senha">
                     </div>
                     <div class="col-sm-5">
                         <label for="city" class="form-label">Cidade</label>
@@ -71,27 +72,10 @@
                     </div>
                 </form>
                 <script>
-                    /*$(document).on('submit', '#update_user_adm', function(e) {
-                        e.preventDefault()
-
-                        const formData = new FormData(this);
-                        $.ajax({
-                            url: '../processing/update_profile.php',
-                            method: 'POST',
-                            data: formData,
-                            contentType: false,
-                            processData: false,
-                            success: function(response) {
-                                alert(response)
-                                window.location.href = 'users.php';
-                            },
-                            error: function(xhr, status, error) {
-                                console.log('Error: ' + error)
-                                console.log('Status: ' + status)
-                                console.log('XHR: ' + xhr)
-                            }
-                        })
-                    })*/
+                    function showFile(input) {
+                        const fileName = input.files[0]?.name || 'Nenhum arquivo selecionado'
+                        document.getElementById("file-name").textContent = fileName;
+                    }
                 </script>
             <?php
         }
