@@ -108,4 +108,61 @@ $(document).ready(function() {
         })
     })
 
+    //carregar tabela simples de usuário para selecionar e ver seu carrinho
+    function usersCart() {
+        $.ajax({
+            url: '../processing/process_users.php',
+            method: 'POST',
+            dataType: 'json',
+            success: function(data) {
+                $.each(data, function(index, user) {
+                    let userCart_tbody = $('#userCart_tbody')
+                    let tr = `
+                        <tr>
+                            <td>
+                                <img src="../processing/${user.user_img}" class="img-fluid" width="100">
+                            </td>
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.username}</td>
+                            <td>${user.email}</td>
+                            <td>${user.role}</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-dark select_cart" data-id="${user.id}">
+                                    Selecionar
+                                </button>
+                            </td>
+                        </tr>
+                    `
+                    userCart_tbody.append(tr)
+                })
+            },
+            error: function(xhr, status, error) {
+                console.log('Error: ' + error)
+                console.log('Status: ' + status)
+                console.log('XHR: ' + xhr)
+            }
+        })
+    }
+    usersCart()
+
+    //mandando o user selecionando para o back-end
+    $(document).on('click', '.select_cart', function() {
+        let user_id = $(this).data('id')
+        console.log(user_id)
+        $.post('get_cart.php', { user_id: user_id }, function(html) {
+            $('#user_cart').html(html)
+            $('<input>', {
+                type: 'hidden',
+                name: 'user_id',
+                value: user_id
+            }).appendTo('#user_cart')
+        })
+    })
+
+    //manipulando total no cart do usuário
+    $(document).on('change', 'qtd_cart', function() {
+        let qtd_cart = $(this).val()
+        console.log(qtd_cart)
+    })
 })

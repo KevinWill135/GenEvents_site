@@ -4,10 +4,12 @@
     include '../db.php';
 
 
-    if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
+    if(!isset($_SESSION['user_id']) AND $_SESSION['role'] != 'admin') {
         header('Location: ../index.php');
         exit;
     }
+
+    
 
 ?>
 
@@ -70,7 +72,26 @@
         <!-- Começo da main -->
     <main class="mb-3">
         <section id="tb_users">
-            fazer um select dos IDs de users que estão no cart, capturar cada ID e pedir todos os usuários que estão com compras no cart, depois de ter cada usuário que tem o cart em aberto, terei um button selecionar para ver o que ele tem dentro do cart, isso irá me permitir alterar a quantidade da compra e remover do carrinho o ticket e assim estará pronto o back-end do users_cart.php
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>User Id</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody id="userCart_tbody">
+                    <!-- Tabela simples dos usuários -->
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <div id="user_cart">
+                    <!-- Informações do cart -->
+            </div>
         </section>
     </main>
         <!-- Fim da main -->
@@ -82,5 +103,6 @@
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="../../javascript/process_admin.js"></script>
 </body>
 </html>
