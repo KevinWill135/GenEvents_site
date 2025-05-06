@@ -1,8 +1,16 @@
 /** Geral **/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 500;
 }
 
 /*** Links ***/
@@ -25,28 +33,30 @@ a {
     background-color: white;
 }
 
-.sec_header {
-
-}
-
 .div_logo {
-
     width: 18%;
 }
 
-.navbar {
+.div_logo .logo {
+    width: 80%;
 
-    width: 75%;
 }
 
-.link_bar {
+.sec_header nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.div_links {
+    
 }
 
 .form_search {
-    border: 1px solid rgb(230, 229, 229);
     border-radius: 20px;
-    box-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 4px black;
+    background-color: white;
 }
 
 .form_search #search { 
@@ -61,10 +71,6 @@ a {
 .form_search button {
     border: none;
     border-radius: 20px;
-}
-
-.form_search button:hover {
-    border: 1px solid rgb(205, 205, 205);
 }
 
 .icons {
@@ -82,9 +88,10 @@ a {
 #wallpaper_div {
     width: 100%;
     height: 350px;
-    background-image: url("../imagens/wallpaper2.jpeg");
+    background-image: url("../imagens/wallpaper3.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 #text_search {
@@ -195,7 +202,7 @@ a {
 }
 
 /**** Área do login ****/
-#section_login {
+.section_login {
     border-radius: 20px;
     width: 50%;
     padding: 5em;
@@ -215,17 +222,17 @@ a {
     width: 160px;
 }
 
-#section_login form {
+.section_login form {
     border-radius: 20px;
     width: 85%;
     padding: 2rem;
 }
 
-#login_form input {
+.login_form input {
     border: none;
 }
 
-#login_form input:focus {
+.login_form input:focus {
     outline: none;
     border-color: #007BFF;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -294,9 +301,58 @@ a {
     padding: .4rem;
 }
 
+/**** Área de contact page ****/
+#contact_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact_info {
+    border: 1px solid red;
+    flex-grow: 2;
+    margin-right: 5px;
+}
+
+#contact_sct {
+    border: 1px solid red;
+    flex-grow: 2;
+    margin-left: 5px;
+}
+
+#contact_form input,#description {
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+}
+
+#alert_div_contact {
+    position: absolute;
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
 /**** Responsividade, diferentes tamanhos de telas ****/
 @media (min-width: 992px) AND (max-width: 1315px) {
     /* Por enquanto nada para mudar */
+    .div_logo {
+        width: 30%;
+    }
+    
+    .div_links {
+        width: 45%;
+    }
+
+    .form_search {
+        width: 45%;
+        height: 45px;
+    }
 }
 
 @media (min-width: 407px) AND (max-width: 992px){

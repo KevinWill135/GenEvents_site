@@ -21,7 +21,7 @@
 </head>
 <body>
         <!-- Começo do header -->
-    <header class="header_container mb-3">
+    <header class="header_container mb-3 shadow p-3 mb-5 bg-body-tertiary rounded">
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar navbar-expand-lg">
                 <div class="p-2 div_logo">
