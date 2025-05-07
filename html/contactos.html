@@ -44,63 +44,72 @@
         <!-- Começo da main -->
     <main id="contact_main" class="container">
         <section id="contact_info">
-            <div class="contact_title">
+            <div class="contact_title" class="mb-3">
                 <h3>Visite-nos</h3>
             </div>
-            <div>
-                <h5>Ligue para</h5>
-                <p>+351 912667888</p>
-                <p>+351 912776999</p>
-            </div>
-            <div>
-                <h5>Local</h5>
-                <p>Rua que sobe e desce, Lote 7 A - 1000-007 Lisboa</p>
-                <p>Rua que nunca aparece, Lote 8 B - 4000-008 Porto</p>
-            </div>
-            <div>
-                <h5>Horário de Funcionamento</h5>
-                <p>Segunda a Sexta:</p>
-                <p>9h00 - 18h00</p>
-            </div>
-            <div>
-                <h5>Siga-nos nas redes sociais:</h5>
-                <p>facebook</p>
-                <p>linkedin</p>
-                <p>instagram</p>
-                <p>youtube</p>
+            <div id="info_container">
+                <div id="call_us" class="mb-3">
+                    <h5>Ligue para</h5>
+                    <p><i class="fa-solid fa-phone"></i> +351 912667888</p>
+                    <p><i class="fa-solid fa-phone"></i> +351 912776999</p>
+                </div>
+                <div id="location_" class="mb-3">
+                    <h5>Local</h5>
+                    <p><i class="fa-solid fa-location-dot"></i> Rua que sobe e desce, Lote 7 A - 1000-007 Lisboa</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Rua que nunca aparece, Lote 8 B - 4000-008 Porto</p>
+                </div>
+                <div id="work_time" class="mb-3">
+                    <h5>Horário de Funcionamento</h5>
+                    <p>Segunda a Sexta:</p>
+                    <p>9h00 - 18h00</p>
+                </div>
+                <div id="social_" class="mb-3">
+                    <h5>Siga-nos nas redes sociais:</h5>
+                    <a href="https://facebook.com">
+                        <p><i class="fa-brands fa-square-facebook"></i> facebook</p>
+                    </a>
+                    <a href="https://linkedin.com">
+                        <p><i class="fa-brands fa-linkedin"></i> linkedin</p>
+                    </a>
+                    <a href="https://instagram.com">
+                        <p><i class="fa-brands fa-instagram"></i> instagram</p>
+                    </a>
+                    <a href="https://youtube.com">
+                        <p><i class="fa-brands fa-youtube"></i> youtube</p>
+                    </a>
+                </div>
             </div>
         </section>
-        <section id="contact_sct">
+        <section id="contact_sct" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
             <div class="contact_title">
                 <h3>Contacte-nos</h3>
-                <p>Mande aqui seu pedido de contacto que em breve retornamos!</p>
+                <p>Mande aqui seu pedido de contacto que retornaremos em breve!</p>
             </div>
-            <div id="contact_div">
-                <form id="contact_form">
+            <div id="contact_div" class="mt-4">
+                <form id="contact_form" class="mb-4">
                     <div class="row">
-                        <div class="col">
-                            <label for="email" class="form-label">Email</label>
+                        <div class="col mb-4">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Email válido">
                         </div>
-                        <div class="col">
-                            <label for="name" class="form-label">Nome</label>
+                        <div class="col mb-4">
                             <input type="text" name="name" id="name" class="form-control" placeholder="Nome completo">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
-                            <label for="phone" class="form-label">Telefone</label>
+                        <div class="col-6 mb-4">
                             <input type="text" name="phone" id="phone" class="form-control" placeholder="Número de telefone">
                         </div>
                         <div class="col-12">
-                            <label for="description">Contactar</label>
                             <textarea name="description" id="description" class="form-control" placeholder="Digite sua mensagem"></textarea>
                         </div>
                     </div>
-                    <div>
-                        <button type="submit" id="contact_sub" class="btn btn-outline-dark">Enviar</button>
+                    <div class="mt-3">
+                        <button type="submit" id="contact_sub" class="btn btn-outline-primary">Enviar</button>
                     </div>
                 </form>
+                <div>
+                    <p id="error_contact" class="text-danger"></p>
+                </div>
             </div>
         </section>
         <div id="alert_div_contact">
@@ -110,8 +119,72 @@
         </div>
     </main>
         <!-- Fim da main -->
-    <footer>
-        Social media | links | location about others page | contacts
+        <!-- Começo do footer -->
+    <footer class="bg-dark text-white mt-5">
+        <section class="foot_sct">
+            <div class="footer_info container">
+                <div class="footer_contct">
+                    <h6 class="text-primary">Contactos</h6>                    
+                    <ul>
+                        <li>
+                            <a href="https://linkedin.com">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.com">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com">
+                                <i class="fa-brands fa-instagram"></i>
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            912667888
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer_pages">
+                    <h6 class="text-primary">Páginas</h6>
+                    <ul>
+                        <li>
+                            <a href="../php/index.php">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="sobre.html">
+                                Mais Sobre Nós
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contactos.html">
+                                Contactos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                Login
+                            </a>
+                        </li>
+                        <li>
+                            <a href="register.html">
+                                Registar-te
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="direitosContainer shadow-lg p-3 bg-body-dark rounded">
+                    <div class="direitos_">&copy;2025-2025 Todos os direitos reservados.</div>
+                </div>
+            </div>
+        </section>
     </footer>
         <!-- Fim do footer -->
     

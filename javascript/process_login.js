@@ -5,6 +5,7 @@ $(document).ready(function() {
         let email = $('#email').val()
         let password = $('#password').val()
         let message = ''
+        let forgot = ` <a id="alterar_senha" href="forgot_password.html" class="text-primary" style="display: none;">Alterar Senha</a>`
 
         let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if(!emailRegex.test(email)) {
@@ -13,13 +14,13 @@ $(document).ready(function() {
 
         if(password.length < 7) {
             message = 'Esqueceu a senha?'
-            $('#message_error').prepend(message)
-            $('#alterar_senha').css('display', 'inline')
-            return
         }
 
         if(message) {
-            $('#message_error').text(message)
+            $('#message_error').html('')
+            $('#message_error').append(forgot)
+            $('#message_error').prepend(message)
+            $('#alterar_senha').css('display', 'inline')
             return
         }
 
@@ -31,13 +32,16 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(response) {
-                console.log(response)
+                console.log(response.message)
                 response = JSON.parse(response)
 
                 if(response.success) {
                     window.location.href = '../php/admin/admin.php'
                 } else {
-                    $('#message_error').text(response.message)
+                    $('#message_error'). html('')
+                    $('#message_error').append(forgot)
+                    $('#message_error').prepend(response.message)
+                    $('#alterar_senha').css('display', 'inline')
                 }
             },
             error: function(xhr, status, error) {

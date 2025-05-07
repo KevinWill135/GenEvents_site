@@ -2,6 +2,7 @@
 imagens/
 img_events/
 php/processing/uploads/
+php/teste.php
 
 # Ignorar arquivos de configuração local
 .env

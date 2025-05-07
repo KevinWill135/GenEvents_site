@@ -119,8 +119,17 @@
                             
                             <div class="card-body">
                                 <h5 class="card-title"><?= $event['name'] ?></h5>
-                                <p class="card-text"><?= $event['event_date'] ?></p>
-                                <p class="card-text"><?= $event['location'] ?></p>
+                                <p class="card-text">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <?php 
+                                        $date = date('d/m/Y', strtotime($event['event_date']));
+                                        echo $date; 
+                                    ?>
+                                </p>
+                                <p class="card-text">
+                                    <i class="fa-solid fa-location-dot"></i> 
+                                    <?= $event['location'] ?>
+                                </p>
                             </div>
                         </a>
                     </div>
@@ -132,8 +141,71 @@
     </main>
         <!-- Fim da main -->
         <!-- Começo do footer -->
-    <footer>
-        Social media | links | location about others page | contacts
+    <footer class="bg-dark text-white mt-5">
+        <section class="foot_sct">
+            <div class="footer_info container">
+                <div class="footer_contct">
+                    <h6 class="text-primary">Contactos</h6>                    
+                    <ul>
+                        <li>
+                            <a href="https://linkedin.com">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.com">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com">
+                                <i class="fa-brands fa-instagram"></i>
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            912667888
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer_pages">
+                    <h6 class="text-primary">Páginas</h6>
+                    <ul>
+                        <li>
+                            <a href="index.php">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/sobre.html">
+                                Mais Sobre Nós
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/contactos.html">
+                                Contactos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/login.html">
+                                Login
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/register.html">
+                                Registar-te
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="direitosContainer shadow-lg p-3 bg-body-dark rounded">
+                    <div class="direitos_">&copy;2025-2025 Todos os direitos reservados.</div>
+                </div>
+            </div>
+        </section>
     </footer>
         <!-- Fim do footer -->
     

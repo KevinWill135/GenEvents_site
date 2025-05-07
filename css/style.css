@@ -8,9 +8,20 @@
     box-sizing: border-box;
     font-family: "Montserrat", "Urbanist", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
     font-style: normal;
     font-weight: 500;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 600;
 }
 
 /*** Links ***/
@@ -309,26 +320,70 @@ a {
 }
 
 #contact_info {
-    border: 1px solid red;
     flex-grow: 2;
     margin-right: 5px;
+    width: 45%;
+    padding: .8rem;
+}
+
+#info_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: .8rem;
+}
+
+#info_container div {
+    width: 45%;
+    padding: 1rem;
+    background-color: rgb(0, 123, 255);
+    box-shadow: 0 0 10px 2px rgba(0, 123, 255, 0.5);
+    border-radius: 10px;
+    color: white;
+}
+
+#info_container div:hover {
+    background-color: #0a5dd9;
+    box-shadow: 0 0 10px 3px rgba(0, 123, 255, 0.7);
+}
+
+#info_container div p {
+    display: inline-block;
+}
+
+#social_ a {
+    margin-right: 15px;
 }
 
 #contact_sct {
-    border: 1px solid red;
     flex-grow: 2;
     margin-left: 5px;
+    padding: 1rem;
+    height: 450px;
+}
+
+.contact_title {
+    border-radius: 8px;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(249, 249, 249);
+    padding: .8rem;
+    margin-bottom: 1rem;
+}
+
+.contact_title p {
+    font-size: small;
+    color: rgba(0, 0, 0, 0.4);
 }
 
 #contact_form input,#description {
     border: none;
-    border-bottom: 2px solid black;
+    background-color: rgb(249, 249, 249);
+    border-bottom: 1px solid black;
     border-radius: 0;
 }
 
 #alert_div_contact {
     position: absolute;
-    border: 1px solid red;
     width: 100%;
     height: 100%;
     display: none;
@@ -337,10 +392,43 @@ a {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/**** Footer ****/
+footer {
+    border-radius: 8px 8px 0 0;
+    padding: 1rem;
+}
+
+.foot_sct {
+    padding: .6rem;
+}
+
+.footer_info {
+    display: flex;
+}
+
+.footer_contct,.footer_pages {
+    padding: .6rem;
+    margin-right: 15px;
+    width: 15%;
+}
+
+.footer_info ul li:hover {
+   color: rgb(13, 110, 253);
+}
+
+.direitosContainer {
+    display: flex;
+    justify-content: center;
+    width: 65%;
+}
+
+.direitos_ {
+    align-self: center;
+}
 
 /**** Responsividade, diferentes tamanhos de telas ****/
 @media (min-width: 992px) AND (max-width: 1315px) {
-    /* Por enquanto nada para mudar */
+    /***** Index.php *****/
     .div_logo {
         width: 30%;
     }
@@ -404,7 +492,7 @@ a {
 
 @media (max-width: 915px) {
     /* Estilização da página de login */
-    #section_login {
+    .section_login {
         width: 100%;
     }
 

@@ -27,7 +27,7 @@
             echo json_encode(['success' => true, 'redirect' => $redirect]);
             exit;
         } else {
-            echo json_encode(['success' => false, 'message' => 'Email ou senha inválidos']);
+            echo json_encode(['success' => false, 'message' => 'Email ou senha inválidos.']);
             exit;
         }
     }

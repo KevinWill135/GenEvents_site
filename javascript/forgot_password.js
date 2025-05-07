@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //Recuperando o username para enviar ao bando de dados
     $('#username_form').submit(function(e) {
         e.preventDefault()
         
@@ -9,9 +10,13 @@ $(document).ready(function() {
                 //console.log(response)
                 response = JSON.parse(response)
                 //console.log('Dados enviados para o back: ' + response.user_id)
-                $('#get_username').css('display', 'none')
-                $('#get_password').css('display', 'flex')
-
+                if(response.user_id) {
+                    console.log('ID do usuário: ' + response.user_id)
+                    $('#get_username').css('display', 'none')
+                    $('#get_password').css('display', 'flex')
+                } else {
+                    $('#error_username').html('Username não encontrado')
+                }
                 let password_form = $('#password_form')
                 $('<input>', {
                     type: 'hidden',
@@ -24,6 +29,7 @@ $(document).ready(function() {
             })
     })
     
+    //Recuperação da senha para enviar ao bando de dados
     $('#password_form').submit(function(e) {
         e.preventDefault()
 

@@ -106,7 +106,7 @@
                         <h3><?= $event['name'] ?></h3>
                     </div>
                 </div>
-                <div id="description">
+                <div id="event_description">
                     <div id="desc_div">
                         <h4>Descrição do evento:</h4>
                         <p><?= $event['description'] ?></p>
@@ -160,8 +160,71 @@
     </main>
         <!-- Fim da main -->
         <!-- Começo do footer -->
-    <footer>
-        Social media | links | location about others page | contacts
+    <footer class="bg-dark text-white mt-5">
+        <section class="foot_sct">
+            <div class="footer_info container">
+                <div class="footer_contct">
+                    <h6 class="text-primary">Contactos</h6>                    
+                    <ul>
+                        <li>
+                            <a href="https://linkedin.com">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.com">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com">
+                                <i class="fa-brands fa-instagram"></i>
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            912667888
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer_pages">
+                    <h6 class="text-primary">Páginas</h6>
+                    <ul>
+                        <li>
+                            <a href="index.php">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/sobre.html">
+                                Mais Sobre Nós
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/contactos.html">
+                                Contactos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/login.html">
+                                Login
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../html/register.html">
+                                Registar-te
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="direitosContainer shadow-lg p-3 bg-body-dark rounded">
+                    <div class="direitos_">&copy;2025-2025 Todos os direitos reservados.</div>
+                </div>
+            </div>
+        </section>
     </footer>
         <!-- Fim do footer -->
 
