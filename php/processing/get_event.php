@@ -25,7 +25,7 @@
                         Nome do Evento.
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-12">
                     <label for="description" class="form-label">Descrição</label>
                     <textarea name="description" id="description" class="form-control" aria-describedby="text_description"><?= $tb_event['description']; ?></textarea>
                     <div id="text_description" class="form-text">
@@ -40,14 +40,14 @@
                         Data do evento.
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-md-6">
                     <label for="location" class="form-label">Localização</label>
                     <input type="text" name="location" class="form-control" id="location" value="<?= $tb_event['location']; ?>" aria-describedby="text_location">
                     <div id="text_location" class="form-text">
                         Localização do evento.
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-md-5">
                     <label for="seats" class="form-label">Lotação do evento</label>
                     <input type="number" class="form-control" name="seats" id="seats" value="<?= $tb_event['seats']; ?>" aria-describedby="text-seats">
                     <div id="text-seats" class="form-text">

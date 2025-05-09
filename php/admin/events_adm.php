@@ -46,7 +46,7 @@
 </head>
 <body class="bg-body-tertiary body_admin">
         <!-- Começo do header -->
-    <header class="header_container mb-3 header_admin">
+    <header id="events_adm_header" class="header_container mb-3 header_admin">
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
@@ -55,8 +55,8 @@
                     </a>
                 </div>
                 <div id="links_search_events" class="p-2 d-flex link_bar">
-                    <div class="div_links">
-                        <ul class="nav justify-content-center">
+                    <div id="events_adm_links" class="div_links">
+                        <ul id="events_adm_ul" class="nav justify-content-center">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                             </li>
@@ -67,6 +67,9 @@
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li>
                                         <a class="dropdown-item text-light" href="admin.php">Admin</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-light" href="events_adm.php">Events</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item text-light" href="users.php">Users</a>
@@ -105,9 +108,10 @@
     <main class="container mb-3 main_admin">
         <section id="events_adm" class="shadow p-3 mb-5 bg-body-tertiary rounded">
             <div id="tb_events_div">
+                <h2 class="events_adm_Hs">Eventos Disponíveis</h2>
                 <?php if($orders): ?>
-                <table>
-                    <thead>
+                <table id="events_adm_table" class="table table-light table-hover table-borderless">
+                    <thead class="table-dark">
                         <tr>
                             <th>ID</th>
                             <th>Image Event</th>
@@ -116,6 +120,7 @@
                             <th>Location</th>
                             <th>Seats</th>
                             <th>Event Type</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="tbody_event_adm">
@@ -143,8 +148,8 @@
                                     <?= $order['event_type']; ?>
                                 </td>
                                 <td>
-                                    <button type="button" id="delete_event_adm" data-id="<?= $order['id']; ?>">Deletar</button>
-                                    <button type="button" id="slc_event_adm" data-id="<?= $order['id']; ?>">Editar</button>
+                                    <button type="button" id="delete_event_adm" data-id="<?= $order['id']; ?>" class="btn btn-danger">Deletar</button>
+                                    <button type="button" id="slc_event_adm" data-id="<?= $order['id']; ?>" class="btn btn-outline-dark">Editar</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -157,77 +162,79 @@
                 <?php endif; ?>
             </div>
         </section>
-        <section id="edit_event">
-            <h3 id="title_edit_event" style="display: none;">Editar Eventos</h3>
-            <div id="div_edit_event">
-                <!-- Evento para editar -->
-            </div>
-        </section>
-        <section id="create_event">
-            <h3>Criar Eventos</h3>
-            <div id="div_create">
-                <form action="../processing/create_event.php" method="post" class="row g-3" enctype="multipart/form-data">
-                    <div class="col-12">
-                        <label for="name" class="form-label">Nome</label>
-                        <input type="text" name="name" id="name" class="form-control" aria-describedby="text_name" required>
-                        <div id="text_name" class="form-text">
-                            Nome do Evento.
+        <div class="container mb-5">            
+            <section id="edit_event" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="display: none;">
+                <h3 id="title_edit_event" class="events_adm_Hs">Editar Eventos</h3>
+                <div id="div_edit_event">
+                    <!-- Evento para editar -->
+                </div>
+            </section>
+            <section id="create_event" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                <h3 class="events_adm_Hs">Criar Evento</h3>
+                <div id="div_create">
+                    <form action="../processing/create_event.php" method="post" class="row g-3" enctype="multipart/form-data">
+                        <div class="col-12">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" name="name" id="name" class="form-control" aria-describedby="text_name" required>
+                            <div id="text_name" class="form-text">
+                                Nome do Evento.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="description" class="form-label">Descrição</label>
-                        <textarea name="description" id="description" class="form-control" aria-describedby="text_description" required></textarea>
-                        <div id="text_description" class="form-text">
-                            Descrição do evento.
+                        <div class="col-md-12">
+                            <label for="description" class="form-label">Descrição</label>
+                            <textarea name="description" id="description" class="form-control" aria-describedby="text_description" required></textarea>
+                            <div id="text_description" class="form-text">
+                                Descrição do evento.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="event_date" class="form-label">date</label>
-                        <input type="date" name="event_date" id="event_date" class="form-control" aria-describedby="text_date" required>
-                        <div id="text_date" class="form-text">
-                            Data do evento.
+                        <div class="col-md-6">
+                            <label for="event_date" class="form-label">date</label>
+                            <input type="date" name="event_date" id="event_date" class="form-control" aria-describedby="text_date" required>
+                            <div id="text_date" class="form-text">
+                                Data do evento.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <label for="location" class="form-label">Localização</label>
-                        <input type="text" name="location" class="form-control" id="location" aria-describedby="text_location" required>
-                        <div id="text_location" class="form-text">
-                            Localização do evento.
+                        <div class="col-6">
+                            <label for="location" class="form-label">Localização</label>
+                            <input type="text" name="location" class="form-control" id="location" aria-describedby="text_location" required>
+                            <div id="text_location" class="form-text">
+                                Localização do evento.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <label for="seats" class="form-label">Lotação do evento</label>
-                        <input type="number" class="form-control" name="seats" id="seats" aria-describedby="text-seats" required>
-                        <div id="text-seats" class="form-text">
-                            Lotação disponivel para o evento.
+                        <div class="col-5">
+                            <label for="seats" class="form-label">Lotação do evento</label>
+                            <input type="number" class="form-control" name="seats" id="seats" aria-describedby="text-seats" required>
+                            <div id="text-seats" class="form-text">
+                                Lotação disponivel para o evento.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="form-label" for="event_type">Tipo do evento</label>
-                        <select class="form-select" id="event_type" name="event_type" aria-describedby="text_slcEvent" required>
-                            <option selected disabled>Escolha...</option>
-                            <option value="concertos">Concertos</option>
-                            <option value="discoteca">Discoteca</option>
-                            <option value="sunset">Sunset</option>
-                        </select>
-                        <div id="text_slcEvent" class="form-text">
-                            O tipo do evento.
+                        <div class="col-sm-4">
+                            <label class="form-label" for="event_type">Tipo do evento</label>
+                            <select class="form-select" id="event_type" name="event_type" aria-describedby="text_slcEvent" required>
+                                <option selected disabled>Escolha...</option>
+                                <option value="concertos">Concertos</option>
+                                <option value="discoteca">Discoteca</option>
+                                <option value="sunset">Sunset</option>
+                            </select>
+                            <div id="text_slcEvent" class="form-text">
+                                O tipo do evento.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <label for="event_img" class="form-label">Cartaz do evento</label>
-                        <input type="file" name="event_img" id="event_img" class="form-control" aria-describedby="text_img" required>
-                        <div id="text_img" class="form-text">
-                            Escolha o cataz do evento.
+                        <div class="col-12">
+                            <label for="event_img" class="form-label">Cartaz do evento</label>
+                            <input type="file" name="event_img" id="event_img" class="form-control" aria-describedby="text_img" required>
+                            <div id="text_img" class="form-text">
+                                Escolha o cataz do evento.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <p id="message_error" class="text-danger"></p>
-                        <button type="submit" class="btn btn-primary">Editar</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+                        <div class="col-12">
+                            <p id="message_error" class="text-danger"></p>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
     </main>
         <!-- Fim da main -->
         <!-- Começo do footer -->

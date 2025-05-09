@@ -25,7 +25,7 @@
 </head>
 <body class="body_admin">
         <!-- Começo do header -->
-    <header class="header_container mb-3">
+    <header class="header_container mb-3 header_admin">
         <section class="d-flex justify-content-center sec_header">
             <nav class="navbar">
                 <div class="p-2 div_logo">
@@ -45,6 +45,9 @@
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li>
                                     <a class="dropdown-item text-light" href="admin.php">Admin</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-light" href="events_adm.php">Events</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item text-light" href="users.php">Users</a>

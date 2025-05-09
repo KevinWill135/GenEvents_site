@@ -69,3 +69,36 @@
     align-self: flex-end;
     width: 100%;
 }
+
+/**** Estilizando o arquivo EVENTS_ADM ****/
+
+#links_search_events {
+    justify-content: space-around;
+}
+
+#events_adm_links {
+    width: 65%;
+}
+
+.header_admin .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#search_events_adm {
+    width: 40%;
+}
+
+#tb_events_div {
+    padding: 2rem;
+}
+
+#div_create,#div_edit_event {
+    padding: 1rem;
+}
+
+.events_adm_Hs {
+    margin-bottom: 25px;
+}
+

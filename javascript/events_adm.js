@@ -1,7 +1,14 @@
 $(document).ready(function() {
     //Deletar evento
     $(document).on('click', '#delete_event_adm', function() {
-        let eventId = $(this).data('id');
+        let eventId = $(this).data('id')
+
+        let confirmar = confirm(`Tem certeza de que deseja deletar o evento de ID: ${eventId}?`)
+        if(!confirmar) {
+            alert('Operação cancelada!')
+            return
+        }
+
         $.post('../processing/delete_event.php', { event_id: eventId }, function(response) {
             console.log(response)
             response = JSON.parse(response);
@@ -20,8 +27,12 @@ $(document).ready(function() {
         let eventId = $(this).data('id');
         $.post('../processing/get_event.php', { event_id: eventId }, function(html) {
             $('#div_edit_event').html(html);
-            $('#title_edit_event').css('display', 'block')
-            document.getElementById('div_edit_event').scrollIntoView({ behavior: 'smooth' })
+            $('#edit_event').css('display', 'block')
+            document.getElementById('edit_event').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'start'
+            })
         })
     })
 

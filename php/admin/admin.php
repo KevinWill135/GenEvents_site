@@ -47,6 +47,9 @@
                                     <a class="dropdown-item text-light" href="admin.php">Admin</a>
                                 </li>
                                 <li>
+                                    <a class="dropdown-item text-light" href="events_adm.php">Events</a>
+                                </li>
+                                <li>
                                     <a class="dropdown-item text-light" href="users.php">Users</a>
                                 </li>
                                 <li>
