@@ -4,8 +4,8 @@
 
 /**** Estilização de USERS ****/
 #user_tbody img {
-    width: 100px;
-    height: 95px;
+    width: 120px;
+    height: 75px;
 }
 
 @media (max-width: 1200px) {
@@ -20,10 +20,14 @@
 }
 
 .img_adm {
+    border: 1px solid rgba(0, 0, 0, 0.513);
     border-radius: 50%;
+    padding: .05rem;
+    box-shadow: 2px 2px 5px 0px black;
     width: 125px;
     height: 125px;
     object-fit: cover;
+    object-position: 50% 100%;
 }
 
 #user_cart {

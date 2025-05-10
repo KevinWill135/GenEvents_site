@@ -45,7 +45,8 @@ $(document).ready(function() {
                     updateTotal()
                     window.location.href = 'cart.php'
                 } else {
-                    alert('Erro line 47 process_event: ' + response.message)
+                    alert('Precisa estar logado para comprar ingressos.')
+                    window.location.href = '../html/login.html'
                     $('.qtd_batch').val(0)
                     updateTotal()
                 }

@@ -35,6 +35,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name ="author" content="Kevin De Paula">
+    <meta name="description" content="GenEvents, site de eventos">
+    <meta
+      name="keywords"
+      content="eventos, events, concertos, festas, sunsets, eventos Portugal, discotecas, festas de verão,  eventos Lisboa, eventos Porto"
+    />
+    <meta name="robots" content="nosnippet, noarchive, noimgeindex">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
@@ -42,7 +49,7 @@
     <link rel="stylesheet" href="../../CSS/admin.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/aa07e9ca9b.js" crossorigin="anonymous"></script>
-    <title>GenEvents</title>
+    <title>GenEvents - Bem Vindo Admin</title>
 </head>
 <body class="bg-body-tertiary body_admin">
         <!-- Começo do header -->
@@ -298,9 +305,9 @@
                         </li>
                     </ul>
                 </div>
-                <div class="direitosContainer shadow-lg p-3 bg-body-dark rounded">
-                    <div class="direitos_">&copy;2025-2025 Todos os direitos reservados.</div>
-                </div>
+            </div>
+            <div class="direitosContainer shadow-lg p-3 bg-body-dark rounded">
+                <div class="direitos_">&copy;2025-2025 Todos os direitos reservados.</div>
             </div>
         </section>
     </footer>

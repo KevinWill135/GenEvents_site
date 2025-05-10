@@ -36,7 +36,7 @@
         }
 
         $stmt = $conn->prepare("INSERT INTO contacts(name, email, phone, description) VALUES(?, ?, ?, ?)");
-        $stmt->bind_param('ssss', $email, $name, $phone, $description);
+        $stmt->bind_param('ssss', $name, $email, $phone, $description);
         $stmt->execute();
 
         $response['success'] = true;

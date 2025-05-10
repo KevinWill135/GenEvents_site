@@ -44,6 +44,7 @@ $(document).ready(function() {
                     setTimeout(() => {
                         $('#alert_div_contact').css('display', 'none')
                         $('#email,#name,#phone,#description').val('')
+                        $('#error_contact').html('')
                     }, 6000)
             },
             error: function(xhr, status, error) {

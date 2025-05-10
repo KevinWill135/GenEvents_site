@@ -18,7 +18,7 @@
         if($result) {
             foreach($result as $event) {
                 echo "
-                    <div class='col-sm-2'>
+                    <div class='col-sm-2 card_search_result'>
                         <div class='card'>
                             <a href=\"event.php?id={$event['id']}\">
                                 <img src=\"{$event['main_img']}\" class='card-img-top img-fluid' alt=\"Imagem {$event['name']}\">
