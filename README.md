@@ -18,7 +18,7 @@
 ## 🛠️ Tecnologias Utilizadas
 
 - **Frontend**: HTML5, CSS3, JavaScript, jQuery, Bootstrap
-- **Backend**: PHP com orientado a objetos também.
+- **Backend**: PHP
 - **Base de dados**: MySQL
 - **Outras ferramentas**:
   - AJAX para requisições assíncronas
