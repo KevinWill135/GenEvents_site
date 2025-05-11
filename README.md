@@ -31,6 +31,6 @@
    - **kevin@admin.com** com senha **Qweasd#3**
    - **admin@admin.com** com senha **Admin123#**
 2. Banco de dados:
-   - Importar o arquivo .msql que está na raiz do projeto
+   - Importar o arquivo .sql que está na raiz do projeto
    - Alterar o $host e $password em php/db.php
    - Alterar o localhost de new PDO em php/dp.php
