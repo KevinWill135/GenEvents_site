@@ -13,6 +13,11 @@
     $user = new Usuario($pdo, $user_id);
     $data = $user->getDados();
 
+    $sql = $conn->prepare("SELECT * FROM order_history WHERE user_id = ?");
+    $sql->bind_param('i', $user_id);
+    $sql->execute();
+    $result = $sql->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -82,8 +87,8 @@
     </header>
         <!-- Fim do header -->
         <!-- Começo da main -->
-    <main class="d-flex justify-content-center align-items-center">
-        <section class="section_profile">
+    <main class="d-flex flex-column justify-content-center align-items-center">
+        <section class="section_profile mb-5">
             <form action="processing/update_profile.php" method="post" class="row g-3" enctype="multipart/form-data">
                 <div class="div_fotoPF">
                     <h4>Foto de perfil</h4>
@@ -140,6 +145,53 @@
                     <button type="submit" class="btn btn-primary">Atualizar</button>
                 </div>
             </form>
+        </section>
+        <section id="history">
+            <div id="history_div">
+                <h3 class="mb-4">Histórico de Compras</h3>
+                <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <table id="table_hist" class="table table-borderless table-light">
+                        <thead>
+                            <tr>
+                                <th>Evento</th>
+                                <th>Lote</th>
+                                <th>Quantidade</th>
+                                <th>Valor Total</th>
+                                <th>Data de Compra</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td data-label="Evento:">
+                                    <?= $row['event_name']; ?>
+                                </td>
+                                <td data-label="Lote:">
+                                    <?php
+                                        $lote = str_replace('_', ' ', $row['batch_name']);
+                                        echo $lote;
+                                    ?>
+                                </td>
+                                <td data-label="Quantidade:">
+                                    <?= $row['quantity']; ?>
+                                </td>
+                                <td data-label="Valor Total:">
+                                    <p>
+                                        €<?= $row['total_price']; ?>
+                                    </p>
+                                </td>
+                                <td data-label="Data de Compra:">
+                                    <?php 
+                                        $event_date = date('d/m/Y H:i', strtotime($row['sale_date']));
+                                        echo $event_date;
+                                    ?>
+                                </td>
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>   
+                </div>
+            </div>
         </section>
     </main>
         <!-- Fim da main -->

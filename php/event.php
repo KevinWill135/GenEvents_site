@@ -101,6 +101,7 @@
         <!-- Fim do header -->
         <!-- Começo da main -->
     <main id="event_main">
+            <!-- Informações do eventos -->
         <section id="event" class="container-fluid">
             <div id="event_container" class="mt-3">
                 <div id="img_div" class="mb-3">

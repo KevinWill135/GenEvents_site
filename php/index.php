@@ -94,6 +94,7 @@
                 <h3 style="color: white">Seja Bem-Vindo</h3>
             </div>
         </section>
+                    <!-- Eventos pesquisados -->
         <section id="search_section" class="container mb-4">
             <div id="text_search">
                 <h3 id="h3_search"><!-- Título colocado dinamicamente com JS --></h3>

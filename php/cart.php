@@ -104,6 +104,7 @@
         <!-- Fim do header -->
         <!-- Começo da main -->
     <main class="mb-3">
+                    <!-- Carrinho -->
         <section id="cart_section" class="container">
             <?php if($result): ?>
             <form id="cart_form">

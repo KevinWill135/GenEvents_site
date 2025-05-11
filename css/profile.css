@@ -49,6 +49,47 @@
 
 /**** Responsividade, diferentes tamanhos de telas ****/
 @media (max-width: 646px) {
+    #history {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #history_div {
+        width: 100%;
+    }
+
+    #table_hist {
+        width: 100%;
+    }
+
+    #table_hist thead {
+        display: none;
+    }
+
+    #table_hist tr {
+        display: block;
+        border-bottom: 2px solid black;
+        margin-bottom: 10px;
+    }
+
+    #table_hist tr td {
+        width: 100%;
+        display: block;
+        text-align: right;
+        border-bottom: 1px dotted black;
+    }
+
+    #table_hist tr td:last-child {
+        border-bottom: 0;
+    }
+
+    #table_hist tr td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    
     .section_profile {
         width: 100%;
     }
